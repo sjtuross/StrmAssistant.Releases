@@ -1,0 +1,98 @@
+---
+# Configuration file for rffmpeg
+#
+# Copy this sample to /etc/rffmpeg/rffmpeg.yml and replace the various attributes
+# with the values for your environment. For more details please see the README.
+#
+# Any commented value represents the default. Uncomment and alter as required.
+
+# Program configuration
+program:
+  # Log file path, without the file name
+  log: "./logs"
+
+  # Set this to true to enable more useful logs
+  debug: true
+
+# Directory configuration
+directories:
+  # Temporary directory to store SSH persistence sockets.
+  persist: "/tmp"
+
+  # The user who should own the state directory and database.
+  # This should normally be the user who normally runs rffmpeg commands (i.e. the media
+  # server service user).
+  owner: emby
+
+  # The group who should own the state directory and database (an administrative group).
+  # Use this group to control who is able to run "rffmpeg" management commands; users in
+  # this group will have unlimited access to the tool to add/remove hosts, view status, etc.
+  group: emby
+
+# Remote (SSH) configuration
+remote:
+  # The remote SSH user to connect as.
+  user: emby
+
+  # How long to persist SSH sessions; 0 to disable SSH persistence (like on Windows).
+  persist: 300
+
+  # A YAML list of additional SSH arguments (e.g. private keys).
+  # One entry line per space-separated argument element.
+  args:
+    - "-i"
+    - "~/.config/emby-server/bin/id_rsa"
+    - "-p"
+    - "2222"
+
+# Remote command configuration
+commands:
+  # The path (either full or in $PATH) to the default SSH binary.
+  ssh: "/usr/bin/ssh"
+
+  # A YAML list of prefixes to the ffmpeg command (e.g. sudo, nice, etc.).
+  # One entry line per space-separated command element.
+  #pre:
+  #  - ""
+
+  # The (remote) ffmpeg and ffprobe command binary paths.
+  ffmpeg: "/usr/local/bin/ffmpeg"
+  ffprobe: "/usr/local/bin/ffprobe"
+
+  # Optional local fallback ffmpeg and ffprobe binary paths, if different from the above.
+  #fallback_ffmpeg: "/usr/local/bin/ffmpeg"
+  #fallback_ffprobe: "/usr/local/bin/ffprobe"
+
+  # Optional additions to special flags that output to stdout instead of stderr. This IS an override.
+  special_flags:
+    - "-version"
+    - "-encoders"
+    - "-decoders"
+    - "-hwaccels"
+    - "-filters"
+    - "-h"
+    - "-muxers"
+    - "-fp_format"
+
+# Database configuration
+database:
+  # Can be 'sqlite' or 'postgres'
+  type: sqlite
+
+  # Path to SQLite database
+  path: "./rffmpeg.db"
+
+  # Host for Postgres connection
+  host: localhost
+
+  # Port for Postgres connection
+  port: 5432
+
+  # Name of the database for Postgres connection
+  name: rffmpeg
+
+  # Username for Postgres connection
+  username: postgres
+
+  # Password for Postgres connection
+  password: ""

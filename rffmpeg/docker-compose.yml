@@ -1,0 +1,14 @@
+services:
+  rffmpeg-worker:
+    image: ghcr.io/sjtuross/rffmpeg-worker:latest
+    container_name: rffmpeg-worker
+    network_mode: bridge
+    ports:
+      - "2222:22"
+    environment:
+      SSH_USER: emby
+      SSH_UID: 1000
+      SSH_GID: 1000
+    volumes:
+      - ./.ssh:/host_ssh:ro
+    restart: unless-stopped
