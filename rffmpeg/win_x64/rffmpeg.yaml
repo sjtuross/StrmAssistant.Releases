@@ -44,6 +44,8 @@ remote:
     - "./id_rsa"
     - "-p"
     - "2222"
+    - "-o"
+    - "LogLevel=ERROR"
 
 # Remote command configuration
 commands:

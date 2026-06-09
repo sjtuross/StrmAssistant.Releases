@@ -1,5 +1,4 @@
-## 相关二进制文件的出处
+## 相关二进制的项目出处
 
-- rffmpeg https://github.com/sjtuross/rffmpeg
-- rffmpeg-worker https://github.com/sjtuross/rffmpeg-worker
+- rffmpeg https://github.com/aleksasiriski/ffmpegof
 - ssh https://github.com/binary-manu/static-cross-openssh

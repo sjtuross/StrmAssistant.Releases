@@ -1,6 +1,6 @@
 services:
   rffmpeg-worker:
-    image: ghcr.io/sjtuross/rffmpeg-worker:latest
+    image: sjtuross/rffmpeg-worker-vulkan:latest
     container_name: rffmpeg-worker
     network_mode: bridge
     ports:

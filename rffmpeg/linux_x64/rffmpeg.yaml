@@ -35,7 +35,7 @@ remote:
   user: emby
 
   # How long to persist SSH sessions; 0 to disable SSH persistence (like on Windows).
-  persist: 300
+  persist: 0
 
   # A YAML list of additional SSH arguments (e.g. private keys).
   # One entry line per space-separated argument element.
@@ -44,6 +44,8 @@ remote:
     - "/config/bin/id_rsa"
     - "-p"
     - "2222"
+    - "-o"
+    - "LogLevel=ERROR"
 
 # Remote command configuration
 commands:
