@@ -16,9 +16,6 @@ program:
 
 # Directory configuration
 directories:
-  # Temporary directory to store SSH persistence sockets.
-  persist: "/tmp"
-
   # The user who should own the state directory and database.
   # This should normally be the user who normally runs rffmpeg commands (i.e. the media
   # server service user).
@@ -31,11 +28,10 @@ directories:
 
 # Remote (SSH) configuration
 remote:
-  # The remote SSH user to connect as.
+  # The remote SSH user to connect as. Set this to an empty string to let the
+  # SSH client resolve the user itself (e.g. via an ssh_config Host alias or
+  # the invoking user), which enables using per-host SSH users.
   user: emby
-
-  # How long to persist SSH sessions; 0 to disable SSH persistence (like on Windows).
-  persist: 0
 
   # A YAML list of additional SSH arguments (e.g. private keys).
   # One entry line per space-separated argument element.
